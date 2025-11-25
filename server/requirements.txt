@@ -8,3 +8,4 @@ flask
 numpy
 flask_cors
 python-dotenv
+gunicorn
