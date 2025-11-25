@@ -1,11 +1,12 @@
 datasets 
 # vmdpy 
-# tensorflow 
-# scikit-learn
+tensorflow
+scikit-learn
 duckdb
-# matplotlib
+matplotlib
 flask
 numpy
 flask_cors
 python-dotenv
 gunicorn
+joblib
