@@ -3,8 +3,8 @@ from db.helper import get_max_retrain_date, get_today_minus_1, get_date_minus, g
 
 def fetch_retrain_data():
     
-    # start_date = get_max_retrain_date()
-    start_date = '2025-11-19'
+    start_date = get_max_retrain_date()
+    # start_date = '2025-11-19'
     real_start_date = get_date_plus(start_date, 1)
     
     print(start_date, real_start_date)

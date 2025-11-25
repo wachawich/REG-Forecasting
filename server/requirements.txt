@@ -1,6 +1,5 @@
 datasets 
-# vmdpy 
-tensorflow
+# vmdpy
 scikit-learn
 duckdb
 matplotlib
@@ -10,3 +9,4 @@ flask_cors
 python-dotenv
 gunicorn
 joblib
+tensorflow
