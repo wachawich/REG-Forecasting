@@ -1,0 +1,57 @@
+name: Renewale Energy Generation Forecasting
+
+services:
+  airflow_init:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    image: reg-airflow:latest
+    container_name: airflow_init
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./shared:/opt/airflow/shared
+      - ./jobs:/opt/airflow/jobs
+      - ./functions:/opt/airflow/functions
+      - ./db:/opt/airflow/db
+      # - ./pipeline/plugins:/opt/airflow/plugins
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/data/airflow.db
+    command: >
+      bash -c "
+        airflow db migrate &&
+        airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin
+      "
+  airflow_standalone:
+    image: reg-airflow:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: airflow_standalone
+    ports:
+      - "8090:8080"
+      # - "8793:8793"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./jobs:/opt/airflow/jobs
+      - ./shared:/opt/airflow/shared
+      - ./functions:/opt/airflow/functions
+      - ./db:/opt/airflow/db
+      - ./data:/opt/airflow/data
+
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__FERNET_KEY=YOUR_FERNET_KEY
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
+      - AIRFLOW__WEBSERVER__RBAC=True
+      # - AIRFLOW__WEBSERVER__BASE_URL=http://localhost:8080
+      - AIRFLOW__LOGGING__BASE_LOG_FOLDER=/opt/airflow/logs
+      - DUCKDB_PATH=/data/duckdb/forecasting.db
+      - PYTHONPATH=/opt:/opt/airflow
+      - BASE_URL=http://host.docker.internal:5000/
+      - BASE_PATH=api/v1/
+      - MOTHER_DUCK_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1eS53cHRoQGdtYWlsLmNvbSIsIm1kUmVnaW9uIjoiYXdzLWV1LWNlbnRyYWwtMSIsInNlc3Npb24iOiJndXkud3B0aC5nbWFpbC5jb20iLCJwYXQiOiJyUGFKNG81Q2dGNkZXeEZpQUlFNDN1Wno1TW1fRHVfOUpkd1NhY2N0bEtJIiwidXNlcklkIjoiODkzZmMwOGYtNWNmOS00NzYwLTg5NDYtMzFmYjM5ODNlYWYyIiwiaXNzIjoibWRfcGF0IiwicmVhZE9ubHkiOmZhbHNlLCJ0b2tlblR5cGUiOiJyZWFkX3dyaXRlIiwiaWF0IjoxNzYzNzQzMTUzfQ.-UTGlagTDRHkPijtUigW-jTojYtzujeJq03XGqXGgsM
+    command: standalone

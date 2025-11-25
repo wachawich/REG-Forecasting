@@ -1,0 +1,11 @@
+duckdb
+pandas
+numpy
+pyarrow
+scikit-learn
+joblib
+requests
+astral
+pysolar
+tqdm
+flask

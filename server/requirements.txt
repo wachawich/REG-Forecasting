@@ -1,0 +1,10 @@
+datasets 
+# vmdpy 
+# tensorflow 
+# scikit-learn
+duckdb
+# matplotlib
+flask
+numpy
+flask_cors
+python-dotenv

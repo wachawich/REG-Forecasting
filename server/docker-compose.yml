@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  reg_api_server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: reg_api_server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/app 
+    environment:
+      - FLASK_APP=server.py
+      - FLASK_ENV=development
+      - FLASK_RUN_HOST=0.0.0.0
+    command: flask run --host=0.0.0.0
+    restart: unless-stopped
