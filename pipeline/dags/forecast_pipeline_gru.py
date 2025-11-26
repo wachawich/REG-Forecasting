@@ -5,7 +5,7 @@ from datetime import datetime
 default_args = {"owner": "airflow"}
 
 with DAG(
-    "forecast_pipeline",
+    "forecast_pipeline_gru",
     schedule="@daily",
     catchup=False,
 ):

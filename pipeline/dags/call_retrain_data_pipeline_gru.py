@@ -1,12 +1,11 @@
 from airflow import DAG
-from airflow.operators.bash import BashOperator
 from airflow.providers.standard.operators.bash import BashOperator
 from datetime import datetime
 
 default_args = {"owner": "airflow"}
 
 with DAG(
-    "call_retrain_data_pipeline",
+    "call_retrain_data_pipeline_gru",
     start_date=datetime(2025,11,21),
     schedule="@daily",
     catchup=False,
