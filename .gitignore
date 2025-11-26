@@ -38,3 +38,11 @@ logs
 # ---- Docker ----
 *.pid
 tmp/
+
+*.db
+*.parquet
+pipeline/data/
+pipeline/shared/
+pipeline/shared/*.db
+pipeline/shared/*.parquet
+
