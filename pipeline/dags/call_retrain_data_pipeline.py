@@ -11,7 +11,6 @@ with DAG(
     schedule="@daily",
     catchup=False,
 ):
-
     fetch_retrain_data = BashOperator(
         task_id="fetch_retrain_data",
         bash_command="python /opt/airflow/jobs/fetch_retrain_data.py"

@@ -4,12 +4,15 @@ from db.helper import get_max_retrain_date, get_today_minus_1, get_date_minus, g
 def fetch_retrain_data():
     
     start_date = get_max_retrain_date()
-    # start_date = '2025-11-19'
     real_start_date = get_date_plus(start_date, 1)
     
     print(start_date, real_start_date)
     start_date_minus = get_date_minus(start_date, 3)
     end_date = get_today_minus_1()
+    
+    # if start_date == end_date:
+    #     print("No new data, skip")
+    #     raise AirflowSkipException("No new data")
     
     df_re_predict = retrain_feature_data(start_date_minus, end_date)
     df_re_predict = df_re_predict[df_re_predict['date'] != end_date]

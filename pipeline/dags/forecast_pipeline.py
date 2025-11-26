@@ -1,5 +1,4 @@
 from airflow import DAG
-from airflow.operators.bash import BashOperator
 from airflow.providers.standard.operators.bash import BashOperator
 from datetime import datetime
 
@@ -7,7 +6,6 @@ default_args = {"owner": "airflow"}
 
 with DAG(
     "forecast_pipeline",
-    start_date=datetime(2025,11,21),
     schedule="@daily",
     catchup=False,
 ):
@@ -26,5 +24,6 @@ with DAG(
         task_id="load_to_duckdb",
         bash_command="python /opt/airflow/jobs/load_to_duckdb.py"
     )
+
 
     fetch_weather >> predict_weather >> load_to_duckdb

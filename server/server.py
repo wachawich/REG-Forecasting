@@ -10,9 +10,10 @@ from logic.retrain_data import get_retrain_data
 from logic.solar_lstm import predict_solar
 from logic.wind_lstm import predict_wind
 from model.variable import FEATURE_COLS_LSTM_SOLAR, FEATURE_COLS_LSTM_WIND, SEQUENCE_LEGHTH
-from db.helper import get_today_minus_3
 
 import pandas as pd
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)

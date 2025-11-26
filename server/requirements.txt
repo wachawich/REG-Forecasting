@@ -1,6 +1,6 @@
 datasets 
 # vmdpy
-scikit-learn
+scikit-learn==1.6.1
 duckdb
 matplotlib
 flask
