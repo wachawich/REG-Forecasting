@@ -52,7 +52,7 @@ services:
       - AIRFLOW__LOGGING__BASE_LOG_FOLDER=/opt/airflow/logs
       - DUCKDB_PATH=/data/duckdb/forecasting.db
       - PYTHONPATH=/opt:/opt/airflow
-      - BASE_URL=http://20.189.115.120/
+      - BASE_URL=http://20.191.153.18/
       # - BASE_URL=http://host.docker.internal/
       # - BASE_URL=http://host.docker.internal/
       - BASE_PATH=api/v1/
