@@ -1,7 +1,7 @@
 import pandas as pd
 from db.duckdbcon import get_duckdb_connection
 
-df_solar = pd.read_parquet("/opt/airflow/shared/predict_weather_forecast.parquet")
+df_solar = pd.read_parquet("/opt/airflow/shared/predict_weather_forecast_solar.parquet")
 df_wind = pd.read_parquet("/opt/airflow/shared/predict_weather_forecast_wind.parquet")
 
 con = get_duckdb_connection()
