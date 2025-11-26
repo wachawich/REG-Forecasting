@@ -9,4 +9,3 @@ astral
 pysolar
 tqdm
 flask
-sys
