@@ -23,7 +23,7 @@ with DAG(
     
     re_predict_data = BashOperator(
         task_id="re_predict_data",
-        bash_command="python /opt/airflow/jobs/re_predict_data.py"
+        bash_command="python /opt/airflow/jobs/re_predict_data_lstm.py"
     )
     
     compare_accuracy_overtime = BashOperator(

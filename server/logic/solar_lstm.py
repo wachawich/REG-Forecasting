@@ -1,12 +1,8 @@
 import numpy as np
-import pandas as pd
 import joblib
-import tensorflow as tf
 from tensorflow.keras.models import load_model
-import matplotlib.pyplot as plt
-import os
 
-def predict_solar(
+def predict_solar_lstm(
     input_df,
     df_test,
     model_path="solar_lstm_model.keras",

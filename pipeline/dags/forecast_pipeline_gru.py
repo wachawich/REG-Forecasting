@@ -17,7 +17,7 @@ with DAG(
 
     predict_weather = BashOperator(
         task_id="predict_weather",
-        bash_command="python /opt/airflow/jobs/weather_predict.py"
+        bash_command="python /opt/airflow/jobs/weather_predict_gru.py"
     )
 
     load_to_duckdb = BashOperator(

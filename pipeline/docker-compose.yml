@@ -1,4 +1,4 @@
-# name: Renewale Energy Generation Forecasting
+#name: Renewale Energy Generation Forecasting
 version: "3.8"
 
 services:
@@ -53,6 +53,8 @@ services:
       - DUCKDB_PATH=/data/duckdb/forecasting.db
       - PYTHONPATH=/opt:/opt/airflow
       - BASE_URL=http://20.189.115.120/
+      # - BASE_URL=http://host.docker.internal/
+      # - BASE_URL=http://host.docker.internal/
       - BASE_PATH=api/v1/
       - MOTHER_DUCK_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1eS53cHRoQGdtYWlsLmNvbSIsIm1kUmVnaW9uIjoiYXdzLWV1LWNlbnRyYWwtMSIsInNlc3Npb24iOiJndXkud3B0aC5nbWFpbC5jb20iLCJwYXQiOiJyUGFKNG81Q2dGNkZXeEZpQUlFNDN1Wno1TW1fRHVfOUpkd1NhY2N0bEtJIiwidXNlcklkIjoiODkzZmMwOGYtNWNmOS00NzYwLTg5NDYtMzFmYjM5ODNlYWYyIiwiaXNzIjoibWRfcGF0IiwicmVhZE9ubHkiOmZhbHNlLCJ0b2tlblR5cGUiOiJyZWFkX3dyaXRlIiwiaWF0IjoxNzYzNzQzMTUzfQ.-UTGlagTDRHkPijtUigW-jTojYtzujeJq03XGqXGgsM
     command: standalone
