@@ -1,7 +1,7 @@
 import numpy as np
 import joblib
 import torch
-from gru import GRUModel
+from logic.gru import GRUModel
 
 def predict_solar_gru(input_df, model_path, scaler_x_path, scaler_y_path, feature_cols, window_size, device="cuda", target_col="value"):
 
