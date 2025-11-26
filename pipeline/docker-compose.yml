@@ -1,4 +1,5 @@
-name: Renewale Energy Generation Forecasting
+# name: Renewale Energy Generation Forecasting
+version: "3.8"
 
 services:
   airflow_init:
