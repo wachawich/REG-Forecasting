@@ -102,7 +102,7 @@ def solar_gru_predict():
                 type: object
     """
     data = request.get_json()
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data["data"])
     
     print("solar_gru_predict", df)
 
@@ -158,7 +158,7 @@ def wind_gru_predict():
                 type: object
     """
     data = request.get_json()
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data["data"])
 
     df_preds = predict_wind_gru(
         input_df=df,
