@@ -1,5 +1,4 @@
-datasets 
-# vmdpy
+ # vmdpy
 scikit-learn==1.6.1
 duckdb
 matplotlib
