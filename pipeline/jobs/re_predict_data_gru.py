@@ -48,7 +48,19 @@ def re_predict_weather():
     df = pd.DataFrame(data)
     df_retrain = pd.DataFrame(data_retrain)
     
-    start_date = min(df_retrain['date'])
+    if df_retrain.empty:
+        print("⚠️ df_retrain is empty → skip prediction")
+        return
+
+    if "date" not in df_retrain.columns:
+        print("⚠️ df_retrain has no 'date' column → skip prediction")
+        return
+
+    if df_retrain["date"].isna().all():
+        print("⚠️ df_retrain['date'] is all NaN → skip prediction")
+        return
+    
+    start_date = df_retrain["date"].min()
     
     df_solar = df[df['type-name'] == 'Solar']
     df_wind  = df[df['type-name'] == 'Wind']
