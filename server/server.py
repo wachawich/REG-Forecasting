@@ -106,9 +106,9 @@ def solar_gru_predict():
 
     df_preds = predict_solar_gru(
         input_df=df,
-        model_path="./model/weights_gru/Solar/solar_gru_weights_final.pth",
-        scaler_x_path="./model/weights_gru/Solar/x_scaler.pkl",
-        scaler_y_path="./model/weights_gru/Solar/y_scaler.pkl",
+        model_path="./model/weight_gru/Solar/solar_gru_weights_final.pth",
+        scaler_x_path="./model/weight_gru/Solar/x_scaler.pkl",
+        scaler_y_path="./model/weight_gru/Solar/y_scaler.pkl",
         feature_cols=FEATURE_COLS_GRU_SOLAR,
         window_size=48,
         device="cpu",
@@ -160,9 +160,9 @@ def wind_gru_predict():
 
     df_preds = predict_wind_gru(
         input_df=df,
-        model_path="./model/weights_gru/Wind/Wind_gru_weights_final.pth",
-        scaler_x_path="./model/weights_gru/Wind/wind_x_scaler.pkl",
-        scaler_y_path="./model/weights_gru/Wind/wind_y_scaler.pkl",
+        model_path="./model/weight_gru/Wind/Wind_gru_weights_final.pth",
+        scaler_x_path="./model/weight_gru/Wind/wind_x_scaler.pkl",
+        scaler_y_path="./model/weight_gru/Wind/wind_y_scaler.pkl",
         feature_cols=FEATURE_COLS_GRU_WIND,
         window_size=48,
         device="cpu",
