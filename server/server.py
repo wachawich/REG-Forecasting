@@ -103,6 +103,8 @@ def solar_gru_predict():
     """
     data = request.get_json()
     df = pd.DataFrame(data)
+    
+    print("solar_gru_predict", df)
 
     df_preds = predict_solar_gru(
         input_df=df,
