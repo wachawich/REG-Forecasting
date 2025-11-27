@@ -11,3 +11,5 @@ joblib
 tensorflow
 torch
 flasgger
+pandas
+os
